@@ -1,0 +1,20 @@
+# Entorno virtual
+reto-env/
+venv/
+
+# Credenciales
+Keys.json
+keys.json
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Streamlit
+.streamlit/
+
+.vscode/
