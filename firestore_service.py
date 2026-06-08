@@ -7,9 +7,8 @@ import json
 # CACHE de conexión (solo se crea una vez)
 @st.cache_resource
 def init_connection():
-    credentials = service_account.Credentials.from_service_account_info(
-        json.loads(st.secrets["FIREBASE_CREDENTIALS"])
-    )
+    credentials_dict = json.loads(st.secrets["FIREBASE_CREDENTIALS"])
+    credentials = service_account.Credentials.from_service_account_info(credentials_dict)
     return firestore.Client(credentials=credentials)
 
 
