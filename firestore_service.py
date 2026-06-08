@@ -2,12 +2,14 @@ import pandas as pd
 import streamlit as st
 from google.cloud import firestore
 from google.oauth2 import service_account
-
+import json
 
 # CACHE de conexión (solo se crea una vez)
 @st.cache_resource
 def init_connection():
-    credentials = service_account.Credentials.from_service_account_file("Keys.json")
+    credentials = service_account.Credentials.from_service_account_info(
+        json.loads(st.secrets["FIREBASE_CREDENTIALS"])
+    )
     return firestore.Client(credentials=credentials)
 
 

@@ -4,7 +4,11 @@ from firestore_service import get_dataframe
 from firestore_service import get_dataframe, client 
 from sqlalchemy import create_engine, text 
 
-conn = st.connection("postgresql", type="sql")
+conn = st.connection(
+    "postgresql",
+    type="sql",
+    url=st.secrets["POSTGRES_URL"]
+)
 
 
 # Se ejecuta al iniciar la aplicación
